@@ -1,6 +1,5 @@
 package Interfaces;
 
-import android.os.AsyncTask;
 import android.widget.TextView;
 
 import com.example.practica2.WebService.Asynchtask;
@@ -8,13 +7,12 @@ import com.example.practica2.WebService.Asynchtask;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 
-public class ProcesaListaBanco implements Asynchtask {
+public class ProcesoListaUser implements Asynchtask {
     TextView txtRespServer;
 
-    public ProcesaListaBanco(TextView txtRespServer) {
+    public ProcesoListaUser(TextView txtRespServer) {
         this.txtRespServer = txtRespServer;
     }
     @Override
@@ -24,10 +22,10 @@ public class ProcesaListaBanco implements Asynchtask {
 
         for(int i=0; i< JSONlista.length();i++){
             JSONObject banco=  JSONlista.getJSONObject(i);
-            listaBanco += banco.getString("code")
-                    + " - " + banco.getString("name")+ "\n";
+            listaBanco += banco.getString("username")
+                    + " , " + banco.getString("id")+ " , " + banco.getString("email")+"\n";
 
         }
-        txtRespServer.setText("Lista Bancos: \n" + listaBanco);
+        txtRespServer.setText("Lista Usuarios: \n" + listaBanco);
     }
 }

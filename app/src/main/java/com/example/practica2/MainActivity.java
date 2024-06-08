@@ -28,7 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.practica2.WebService.Asynchtask;
 import com.example.practica2.WebService.WebService;
 
-import Interfaces.ProcesaListaBanco;
+import Interfaces.ProcesoListaUser;
 
 public class MainActivity extends AppCompatActivity implements Asynchtask {
      TextView txtNombre, txtClave, txtRespServer;
@@ -42,49 +42,8 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        txtNombre = (TextView) findViewById(R.id.txtNombre);
-        txtClave = (TextView) findViewById(R.id.txtClave);
+
         txtRespServer = (TextView) findViewById(R.id.txtRespServer);
-    }
-
-
-    public void enviarWS (View view) {
-
-        Map<String, String> datos = new HashMap<String, String>();
-        WebService ws= new WebService(
-                getUrlLogin() ,
-        datos, MainActivity.this, MainActivity.this);
-
-           ws.execute("GET");
-
-    }
-
-    public String getUrlLogin() {
-        return "https://revistas.uteq.edu.ec/ws/login.php?"+
-                "usr="+ txtNombre.getText().toString() +
-                "&pass="+txtClave.getText().toString();
-    }
-
-    public void enviarWSvolley (View view) {
-
-        RequestQueue queue = Volley.newRequestQueue(this);
-        getUrlLogin();
-
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, getUrlLogin(),
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        txtRespServer.setText("Respuesta: "+ response);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        txtRespServer.setText("Error de Conexión");
-                    }
-                });
-
-        queue.add(stringRequest);
     }
 
     public void ListaBanco (View view) {
@@ -92,10 +51,10 @@ public class MainActivity extends AppCompatActivity implements Asynchtask {
         Map<String, String> datos = new HashMap<String, String>();
 
         WebService ws= new
-                WebService("https://api-uat.kushkipagos.com/transfer/v1/bankList",
-                datos, MainActivity.this, new ProcesaListaBanco(txtRespServer));
+                WebService("https://jsonplaceholder.typicode.com/users",
+                datos, MainActivity.this, new ProcesoListaUser(txtRespServer));
 
-        ws.execute("GET","Public-Merchant-Id","84e1d0de1fbf437e9779fd6a52a9ca18");
+        ws.execute("GET");
 
     }
 

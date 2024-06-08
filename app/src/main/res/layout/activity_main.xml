@@ -7,107 +7,49 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-32dp"
-        android:layout_marginTop="34dp"
-        android:background="#F7FF00"
-        android:text="Practica 2: Inicio Sesion"
-        android:textAlignment="center"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="33dp"
-        android:layout_marginTop="79dp"
-        android:text="Nombre"
-        android:textSize="20sp" />
-
-    <Button
-        android:id="@+id/btnIngresar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="211dp"
-        android:onClick="enviarWS"
-        android:text="Ingresar WS" />
-
-    <EditText
-        android:id="@+id/txtClave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="134dp"
-        android:layout_marginEnd="40dp"
-        android:ems="10"
-        android:hint="Clave"
-        android:inputType="text" />
-
-    <EditText
-        android:id="@+id/txtNombre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="75dp"
-        android:layout_marginEnd="40dp"
-        android:ems="10"
-        android:hint="Usuario"
-        android:inputType="text" />
-
-    <TextView
-        android:id="@+id/txtRespServer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="25dp"
-        android:layout_marginBottom="254dp"
-        android:text="Resp Servidor"
-        android:textAlignment="viewStart"
-        android:textSize="20sp" />
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp">
 
-    <Button
-        android:id="@+id/btnVolley"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="208dp"
-        android:layout_marginEnd="22dp"
-        android:onClick="enviarWSvolley"
-        android:text="Ingresar Volley" />
+        <Button
+            android:id="@+id/btnListaBan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="ListaBanco"
+            android:text="Consulta"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtRespServer"
+            app:layout_constraintVertical_bias="0.74" />
 
-    <Button
-        android:id="@+id/btnListaBan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="139dp"
-        android:layout_marginBottom="333dp"
-        android:onClick="ListaBanco"
-        android:text="Lista Bancos" />
+        <TextView
+            android:id="@+id/txtRespServer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Resp Servidor"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="138dp"
-        android:text="Clave"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:background="#F7FF00"
+            android:text="Consumir APIS"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="-32dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </RelativeLayout>
